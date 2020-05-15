@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{Fragment, useState} from 'react';
+import Formulario from './components/Formulario'
+import $ from 'jquery'
 
 function App() {
+
+  var hola = [];
+
+  $.get("hola/",(data)=>{
+    console.log(data)
+    hola = data;
+    console.log(hola)
+  })
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <h1>Bienvenido</h1>
+    <Formulario
+      hola = {hola}
+    />
+    </Fragment>
   );
 }
 
